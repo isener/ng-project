@@ -1,0 +1,100 @@
+<div class="container-fluid login h-100">
+  <div class="row row-eq-height h-100">
+    <div class="col-6">
+      <div class="row h-100">
+        <div class="col-12 login-wrapper d-flex justify-content-center align-items-center">
+          <div class="login-area">
+            <h2 class="mb-3">Giriş Yap</h2>
+            <p class="desc mb-5">Kullanıcı adınız ve şifreniz ile giriş yapabilirsiniz.</p>
+            <div class="mb-3">
+              <app-alert [alertType]="alertTypes.ERROR" *ngIf="formError">
+                {{formError}}
+              </app-alert>
+            </div>
+            <form #loginForm="ngForm" novalidate (ngSubmit)="loginForm.form.valid && login(credentials)">
+              <div class="form-group">
+                <app-input name="username"
+                           type="email"
+                           placeholder="Kullanıcı Adı"
+                           autoCapitalize="off"
+                           [autoFocus]="true"
+                           [disabled]="isFormSubmitted"
+                           [required]="true"
+                           label="E-Posta veya GLN Numaranız"
+                           [(ngModel)]="credentials.Username">
+                </app-input>
+              </div>
+              <div class="form-group">
+                <app-input name="password"
+                           type="password"
+                           placeholder="Parola"
+                           autoCapitalize="off"
+                           [disabled]="isFormSubmitted"
+                           [required]="true"
+                           label="Parolanız"
+                           [(ngModel)]="credentials.Password">
+                </app-input>
+                <div class="text-right mt-2">
+                  <app-button element="a"
+                              paddingHorizontal="0"
+                              [btnStyle]="buttonStyles.LINK"
+                              routerLink="/forgotpassword">
+                    Şifremi Unuttum
+                  </app-button>
+                </div>
+              </div>
+              <app-button [type]="'submit'"
+                          element="button"
+                          [btnStyle]="buttonStyles.BLUE"
+                          [size]="buttonSizes.MEDIUM"
+                          [disabled]="isFormSubmitted || !loginForm.valid"
+                          [block]="true"
+                          style="width: 100%;">
+                <span *ngIf="!isFormSubmitted">Giriş Yap</span>
+                <loader size="20" *ngIf="isFormSubmitted"></loader>
+              </app-button>
+            </form>
+            <div class="text-center mt-1">
+              <app-button element="a"
+                          [btnStyle]="buttonStyles.LINK"
+                          routerLink="/register">
+                Hemen Üye Ol
+              </app-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row h-100">
+        <div class="col-12 desc-wrapper d-flex justify-content-center align-items-center">
+          <div class="desc-area">
+            <h3 class="head mb-3">VIP Abonelik Fırsatları</h3>
+            <div class="d-flex justify-content-start align-items-start mb-3">
+              <i class="fa fa-check mr-3"></i>
+              <p class="text mb-0">Bundle, İmece ve Promosyon tipi ilan yayınlama yetkisine erişirsin.</p>
+            </div>
+            <div class="d-flex justify-content-start align-items-start mb-3">
+              <i class="fa fa-check mr-3"></i>
+              <p class="text mb-0">İlanlarında kargoyu ister alıcı karşılar, ister kendin karşılarsın. Kendin
+                karşılayacağın ilanlarda “Ücretsiz Kargo” etiketini kazan!</p>
+            </div>
+            <div class="d-flex justify-content-start align-items-start mb-3">
+              <i class="fa fa-check mr-3"></i>
+              <p class="text mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <app-button element="button"
+                        [type]="'button'"
+                        paddingHorizontal="30px"
+                        [btnStyle]="buttonStyles.YELLOW"
+                        [size]="buttonSizes.MEDIUM">
+              VIP Abonelik Paketlerini İncele
+            </app-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

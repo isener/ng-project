@@ -1,0 +1,42 @@
+@import "../../global-styles/variables";
+
+.login {
+  position: absolute;
+  top: 0;
+}
+
+.login-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+  background: $white;
+  .login-area {
+    width: 70%;
+    h2 {
+      font-size: $h1;
+    }
+    .desc {
+      font-size: $h5;
+      color: $gray-500;
+      line-height: 1.5 !important;
+    }
+  }
+}
+
+.desc-wrapper {
+  .desc-area {
+    width: 70%;
+    .head {
+      font-size: $h4;
+      color: #2C2D30;
+    }
+    i {
+      font-size: 30px;
+      color: $yellow;
+    }
+    .text {
+      color: $gray-400;
+      font-size: $normal;
+      line-height: 1.5 !important;
+    }
+  }
+}
